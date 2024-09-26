@@ -10,6 +10,7 @@ let resetGameButton = document.getElementById(`resetButton`);
 let myGame = document.getElementById(`myGame`);
 let gameContainer = document.getElementById(`gameContainer`);
 let betConditionContainer = document.getElementById(`betConditionContainer`);
+let collectWinnings = document.getElementById(`collectWinnings`);
 
 
 
@@ -21,10 +22,14 @@ let diceDisplay = document.createElement(`div`);
 diceDisplay.classList.add(`hidden`);
 diceDisplay.setAttribute(`id`, `diceDisplay`);
 // console.log(diceDisplay);
-myGame.insertBefore(diceDisplay,resetGameButton);
+myGame.insertBefore(diceDisplay, resetGameButton);
 // console.log(myGame);
 
 
+
+
+//Cache initial values
+let iniBalance = Number(balance.textContent);
 
 
 
@@ -32,7 +37,7 @@ startButton.addEventListener(`click`, startPlayNew);
 placeBet.addEventListener(`click`, placeBetValidation);
 rollDice.addEventListener(`click`, betConditionVerification);
 resetGameButton.addEventListener(`click`, resetGameFunction);
-
+collectWinnings.addEventListener(`click`, collectWinningsFunction);
 
 
 
@@ -137,18 +142,70 @@ function betConditionVerification(eve) {
             }
 
             betCond[i].checked = false;
+            collectWinnings.classList.remove(`hidden`);
         }
 
     }
 
     betAmount.value = ``;
     betAmount.focus();
-    betConditionContainer.classList.add(`hidden`);
-    diceDisplay.classList.add(`hidden`);
+
+    setTimeout(() => {
+        betConditionContainer.classList.add(`hidden`);
+        diceDisplay.classList.add(`hidden`);
+    }, 1000); // 2000 milliseconds (2 seconds)
 }
+
+
+
+//Collect Winnings button
+
+function collectWinningsFunction(eve) {
+
+    eve.preventDefault();
+    console.log(eve.target);
+let win, loss;
+    if (iniBalance - Number(balance.textContent) > 0) {
+        loss = iniBalance - Number(balance.textContent);
+        win = 0;
+        confirm(`Sorry ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
+        
+    }
+    else if (Number(balance.textContent) - iniBalance > 0) {
+        win = Number(balance.textContent) - iniBalance;
+        loss = 0;
+        confirm(`Congratulations ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
+    }
+
+    else{
+        win = 0;
+        loss = 0;
+        confirm(`Way to stay consistent ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
+    }
+
+    
+
+    if(confirm){
+        location.reload();
+    }
+
+}
+
+
 
 
 //Reload page button
 function resetGameFunction() {
     location.reload();
 }
+
+
+
+
+
+
+
+
+
+
+
