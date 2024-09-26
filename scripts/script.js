@@ -14,6 +14,7 @@ let gameContainer = document.getElementById(`gameContainer`);
 
 
 startButton.addEventListener(`click`, startPlayNew);
+placeBet.addEventListener(`click`, placeBetValidation);
 
 
 
@@ -48,4 +49,32 @@ function startPlayNew(eve) {
     }
 
 }
+
+
+// Function to set a bet amount value (between 10-25)
+function placeBetValidation(eve) {
+    eve.preventDefault();
+
+    // console.log(eve.target);
+    // console.log(betAmount.value);
+
+    if (betAmount.value < betAmount.min || betAmount.value > betAmount.max) {
+        alert(`Enter bet amount between 10 and 25`);
+    }
+
+    else {
+
+        if (balance.innerHTML - betAmount.value < 0) {
+            //console.log(betAmount.value, balance.innerText)
+            alert(`Insufficient balance`);
+        }
+
+        else {
+            balance.innerHTML = balance.innerHTML - betAmount.value;
+
+        }
+    }
+
+}
+
 
