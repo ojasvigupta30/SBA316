@@ -9,6 +9,7 @@ let rollDice = document.querySelector(`#rollDiceButton`);
 let resetGameButton = document.getElementById(`resetButton`);
 let myGame = document.getElementById(`myGame`);
 let gameContainer = document.getElementById(`gameContainer`);
+let betConditionContainer = document.getElementById(`betConditionContainer`);
 
 
 
@@ -73,6 +74,7 @@ function placeBetValidation(eve) {
 
         else {
             balance.innerHTML = balance.innerHTML - betAmount.value;
+            betConditionContainer.classList.remove(`hidden`);
 
         }
     }
