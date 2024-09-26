@@ -16,6 +16,7 @@ let gameContainer = document.getElementById(`gameContainer`);
 startButton.addEventListener(`click`, startPlayNew);
 placeBet.addEventListener(`click`, placeBetValidation);
 rollDice.addEventListener(`click`, betConditionVerification);
+resetGameButton.addEventListener(`click`, resetGameFunction);
 
 
 
@@ -124,4 +125,10 @@ function betConditionVerification(eve) {
 
     betAmount.value = ``;
     betAmount.focus();
+}
+
+
+//Reload page button
+function resetGameFunction (){
+    location.reload();
 }
