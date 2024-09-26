@@ -15,6 +15,7 @@ let gameContainer = document.getElementById(`gameContainer`);
 
 startButton.addEventListener(`click`, startPlayNew);
 placeBet.addEventListener(`click`, placeBetValidation);
+rollDice.addEventListener(`click`, betConditionVerification);
 
 
 
@@ -78,3 +79,49 @@ function placeBetValidation(eve) {
 }
 
 
+
+//Function to place your bet condition and roll the dice
+function betConditionVerification(eve) {
+
+    eve.preventDefault();
+
+    if (betAmount.value < betAmount.min || betAmount.value > betAmount.max) {
+        alert(`Enter bet amount between 10 and 25`);
+    }
+
+    else {
+
+        //console.log(betCond[0]);
+        for (let i = 0; i < betCond.length; i++) {
+            if (betCond[i].checked) {
+                // console.log(betCond[i].value);
+                let dice = Math.floor(Math.random() * (13 - 2) + 2);
+                console.log(dice);
+
+                if (betCond[i].value == `lessThanSeven` && dice < 7) {
+
+                    balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
+                    //console.log(balance.innerHTML);
+
+
+                }
+
+                else if (betCond[i].value == `greaterThanSeven` && dice > 7) {
+                    balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
+                }
+
+                else if (betCond[i].value == `seven` && dice == 7) {
+                    balance.innerHTML = Number(balance.innerHTML) + (2 * Number(betAmount.value));
+                }
+
+
+            }
+
+            betCond[i].checked = false;
+        }
+
+    }
+
+    betAmount.value = ``;
+    betAmount.focus();
+}
