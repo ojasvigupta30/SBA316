@@ -26,8 +26,6 @@ myGame.insertBefore(diceDisplay, resetGameButton);
 // console.log(myGame);
 
 
-
-
 //Cache initial values
 let iniBalance = Number(balance.textContent);
 
@@ -141,10 +139,22 @@ function betConditionVerification(eve) {
 
             }
 
-            betCond[i].checked = false;
             collectWinnings.classList.remove(`hidden`);
         }
 
+
+        if (!betCond[0].checked && !betCond[1].checked && !betCond[2].checked) {
+            alert(`Choose a betting condition`);
+            balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
+
+        }
+
+
+        for(let i of betCond){
+        i.checked = false;
+        i.checked = false;
+        i.checked = false;
+        }
     }
 
     betAmount.value = ``;
@@ -164,12 +174,12 @@ function collectWinningsFunction(eve) {
 
     eve.preventDefault();
     console.log(eve.target);
-let win, loss;
+    let win, loss;
     if (iniBalance - Number(balance.textContent) > 0) {
         loss = iniBalance - Number(balance.textContent);
         win = 0;
         confirm(`Sorry ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
-        
+
     }
     else if (Number(balance.textContent) - iniBalance > 0) {
         win = Number(balance.textContent) - iniBalance;
@@ -177,15 +187,15 @@ let win, loss;
         confirm(`Congratulations ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
     }
 
-    else{
+    else {
         win = 0;
         loss = 0;
         confirm(`Way to stay consistent ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
     }
 
-    
 
-    if(confirm){
+
+    if (confirm) {
         location.reload();
     }
 
