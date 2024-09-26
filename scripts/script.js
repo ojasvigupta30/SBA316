@@ -14,6 +14,20 @@ let betConditionContainer = document.getElementById(`betConditionContainer`);
 
 
 
+
+
+//Creating a new Element for displaying dice result and appending it to "body" parent node
+let diceDisplay = document.createElement(`div`);
+diceDisplay.classList.add(`hidden`);
+diceDisplay.setAttribute(`id`, `diceDisplay`);
+// console.log(diceDisplay);
+myGame.insertBefore(diceDisplay,resetGameButton);
+// console.log(myGame);
+
+
+
+
+
 startButton.addEventListener(`click`, startPlayNew);
 placeBet.addEventListener(`click`, placeBetValidation);
 rollDice.addEventListener(`click`, betConditionVerification);
@@ -100,6 +114,8 @@ function betConditionVerification(eve) {
                 // console.log(betCond[i].value);
                 let dice = Math.floor(Math.random() * (13 - 2) + 2);
                 console.log(dice);
+                diceDisplay.classList.remove(`hidden`);
+                diceDisplay.innerHTML = dice;
 
                 if (betCond[i].value == `lessThanSeven` && dice < 7) {
 
@@ -127,10 +143,12 @@ function betConditionVerification(eve) {
 
     betAmount.value = ``;
     betAmount.focus();
+    betConditionContainer.classList.add(`hidden`);
+    diceDisplay.classList.add(`hidden`);
 }
 
 
 //Reload page button
-function resetGameFunction (){
+function resetGameFunction() {
     location.reload();
 }
