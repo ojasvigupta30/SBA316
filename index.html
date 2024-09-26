@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script defer src="./scripts/script.js"></script>
+</head>
+
+<body id="myGame">
+    <!-- Greeting Heading -->
+    <form>
+        <h1>Are You Feeling Lucky<span id="playerName"></span>....????</h1>
+    </form>
+
+    <!-- Player Name button-->
+    <button type="submit" id="startPlay">Are you ready to rumble...???</button>
+
+    <!-- Enter betting value -->
+    <div class="hidden" id="gameContainer">
+        <form>
+            <div id="bettingSection" class="betting-section">
+                <div class="balance-container">
+                    <p>Your Balance: $<span id="balance">100</span></p>
+                </div>
+
+                <div class="bet-container">
+                    <label>How much do you want to bet..??? </label>
+                    <input type="number" id="betAmount" placeholder="Enter your bet" min="10" max="25" required>
+                    <button type="submit" id="placeBetButton">I am ready..!!!</button>
+
+                </div>
+            </div>
+        </form>
+        <br>
+        <form>
+            <fieldset>
+                <legend>What are you betting on..???</legend>
+                <div class="betCondition" id="betValueOn">
+                    <label> Less Than Seven:
+                        <input type="radio" name="betCondition" value="lessThanSeven">
+                    </label>
+                    <label> Seven:
+                        <input type="radio" name="betCondition" value="seven">
+                    </label>
+                    <label> Greater Than Seven:
+                        <input type="radio" name="betCondition" value="greaterThanSeven">
+                    </label><br><br>
+                    <button id="rollDiceButton">If Ready Then Roll</button>
+                </div>
+            </fieldset>
+            <br>
+        </form>
+    </div>
+    <button type="reset" id="resetButton">Try your luck again..???</button>
+</body>
+
+</html>
