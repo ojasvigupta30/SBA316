@@ -1,3 +1,5 @@
+//----------------------------Caching nodes of the HTML code-----------------------------
+
 let playerName = document.getElementById(`playerName`);
 let heading = document.getElementsByTagName(`h1`);
 let startButton = document.getElementById(`startPlay`);
@@ -11,25 +13,38 @@ let myGame = document.getElementById(`myGame`);
 let gameContainer = document.getElementById(`gameContainer`);
 let betConditionContainer = document.getElementById(`betConditionContainer`);
 let collectWinnings = document.getElementById(`collectWinnings`);
-
 let diceDisplay = document.getElementById('diceDisplay');
 
 
 
 
-// //Creating a new Element for displaying dice result and appending it to "body" parent node
-// let diceDisplay = document.createElement(`div`);
-// diceDisplay.classList.add(`hidden`);
-// diceDisplay.setAttribute(`id`, `diceDisplay`);
-// // console.log(diceDisplay);
-// myGame.insertBefore(diceDisplay, resetGameButton);
-// // console.log(myGame);
+//-----------------------------------------------Creating new elements----------------------------------------------
 
+//Creating a new Element for displaying dice result and appending it to "body" parent node
+let resultDisplay = document.createElement(`div`);
+resultDisplay.classList.add(`resultSection`);
+resultDisplay.classList.add(`hidden`);
+resultDisplay.setAttribute(`id`, `resultDisplay`);
+// console.log(resultDisplay);
+myGame.insertBefore(resultDisplay, diceDisplay);
+// console.log(myGame);
+
+//Styling the resultDisplay element
+resultDisplay.style.fontSize = `1.5rem`;
+resultDisplay.style.marginTop = `20px`;
+resultDisplay.style.minHeight = `40px`;
+
+
+
+
+//------------------------------------------Declaring and caching variables---------------------------------
 
 //Cache initial values
 let iniBalance = Number(balance.textContent);
 
 
+
+//-------------------------------------------------Event listeners------------------------------------------
 
 startButton.addEventListener(`click`, startPlayNew);
 placeBet.addEventListener(`click`, placeBetValidation);
@@ -41,12 +56,17 @@ collectWinnings.addEventListener(`click`, collectWinningsFunction);
 
 
 
+
+
+
+
+
+// -------------------------------------------------Event Handling functions------------------------------------------
+
 // Function to start a new game and entering player name
 function startPlayNew(eve) {
 
     eve.preventDefault();
-
-
     //console.log(eve.target);
 
     if (eve.target) {
@@ -71,6 +91,8 @@ function startPlayNew(eve) {
 }
 
 
+
+
 // Function to set a bet amount value (between 10-25)
 let count = 0;
 function placeBetValidation(eve) {
@@ -79,7 +101,7 @@ function placeBetValidation(eve) {
     // console.log(eve.target);
     // console.log(betAmount.value);
 
-    if (betAmount.value < betAmount.min || betAmount.value > betAmount.max || !Number.isInteger(betAmount.value)) {
+    if (betAmount.value < betAmount.min || betAmount.value > betAmount.max) {
         alert(`Enter proper bet amount between 10 and 25`);
     }
 
@@ -91,7 +113,7 @@ function placeBetValidation(eve) {
         }
 
         else {
-            balance.innerHTML = balance.innerHTML - betAmount.value;
+            balance.innerHTML = balance.innerHTML - Math.floor(betAmount.value);
             betConditionContainer.classList.remove(`hidden`);
             count++;
 
@@ -105,8 +127,12 @@ function placeBetValidation(eve) {
     }
 
 
+    resetGameButton.classList.remove(`hidden`);
+
 
 }
+
+
 
 
 
@@ -115,12 +141,13 @@ function betConditionVerification(eve) {
 
     eve.preventDefault();
     placeBet.disabled = false;
+    let dice;
 
     //console.log(betCond[0]);
     for (let i = 0; i < betCond.length; i++) {
         if (betCond[i].checked) {
             // console.log(betCond[i].value);
-            let dice = Math.floor(Math.random() * (13 - 2) + 2);
+            dice = Math.floor(Math.random() * (13 - 2) + 2);
             console.log(dice);
 
             // Show dice roll animation
@@ -170,10 +197,15 @@ function betConditionVerification(eve) {
     betAmount.focus();
 
     setTimeout(() => {
+        resultDisplay.classList.remove(`hidden`);
+        resultDisplay.innerHTML = dice;
         betConditionContainer.classList.add(`hidden`);
         diceDisplay.classList.add(`hidden`);
-    }, 1000); // 2000 milliseconds (2 seconds)
+    }, 1000); // 1000 milliseconds (1 second)
 }
+
+
+
 
 
 
@@ -213,9 +245,20 @@ function collectWinningsFunction(eve) {
 
 
 
+
+
+
 //Reload page button
 function resetGameFunction() {
+
+    let resetValue = confirm(`Do you want to try your luck again..???\nHit cancel if you still believe in your luck...`);
+    if(resetValue){
     location.reload();
+    }
+    else{
+        betAmount.focus();
+        return;
+    }
 }
 
 
