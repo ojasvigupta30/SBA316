@@ -12,7 +12,7 @@ let gameContainer = document.getElementById(`gameContainer`);
 let betConditionContainer = document.getElementById(`betConditionContainer`);
 let collectWinnings = document.getElementById(`collectWinnings`);
 
-
+let diceDisplay = document.getElementById('diceDisplay');
 
 
 
@@ -118,7 +118,11 @@ function betConditionVerification(eve) {
                 let dice = Math.floor(Math.random() * (13 - 2) + 2);
                 console.log(dice);
 
+                // Show dice roll animation
+                //dice.classList.remove('hidden');
                 
+                    diceDisplay.classList.remove(`hidden`);
+                    //diceDisplay.innerHTML = dice;
 
                     if (betCond[i].value == `lessThanSeven` && dice < 7) {
 

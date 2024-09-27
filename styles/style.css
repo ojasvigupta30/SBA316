@@ -78,3 +78,19 @@ button:hover {
     margin-bottom: 20px;
 }
 
+/* Dice styling */
+#diceDisplay {
+    font-size: 4rem;
+    margin-top: 20px;
+    animation: rollDice 1s ease-in-out;
+}
+
+/* Dice roll animation */
+@keyframes rollDice {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(90deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(270deg); }
+}
+
+
