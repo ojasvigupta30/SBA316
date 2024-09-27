@@ -17,13 +17,13 @@ let collectWinnings = document.getElementById(`collectWinnings`);
 
 
 
-//Creating a new Element for displaying dice result and appending it to "body" parent node
-let diceDisplay = document.createElement(`div`);
-diceDisplay.classList.add(`hidden`);
-diceDisplay.setAttribute(`id`, `diceDisplay`);
-// console.log(diceDisplay);
-myGame.insertBefore(diceDisplay, resetGameButton);
-// console.log(myGame);
+// //Creating a new Element for displaying dice result and appending it to "body" parent node
+// let diceDisplay = document.createElement(`div`);
+// diceDisplay.classList.add(`hidden`);
+// diceDisplay.setAttribute(`id`, `diceDisplay`);
+// // console.log(diceDisplay);
+// myGame.insertBefore(diceDisplay, resetGameButton);
+// // console.log(myGame);
 
 
 //Cache initial values
@@ -117,97 +117,97 @@ function betConditionVerification(eve) {
                 // console.log(betCond[i].value);
                 let dice = Math.floor(Math.random() * (13 - 2) + 2);
                 console.log(dice);
-                diceDisplay.classList.remove(`hidden`);
-                diceDisplay.innerHTML = dice;
 
-                if (betCond[i].value == `lessThanSeven` && dice < 7) {
+                
 
-                    balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
-                    //console.log(balance.innerHTML);
+                    if (betCond[i].value == `lessThanSeven` && dice < 7) {
+
+                        balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
+                        //console.log(balance.innerHTML);
+
+
+                    }
+
+                    else if (betCond[i].value == `greaterThanSeven` && dice > 7) {
+                        balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
+                    }
+
+                    else if (betCond[i].value == `seven` && dice == 7) {
+                        balance.innerHTML = Number(balance.innerHTML) + (2 * Number(betAmount.value));
+                    }
 
 
                 }
 
-                else if (betCond[i].value == `greaterThanSeven` && dice > 7) {
-                    balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
-                }
+            collectWinnings.classList.remove(`hidden`);
+            }
 
-                else if (betCond[i].value == `seven` && dice == 7) {
-                    balance.innerHTML = Number(balance.innerHTML) + (2 * Number(betAmount.value));
-                }
 
+            if (!betCond[0].checked && !betCond[1].checked && !betCond[2].checked) {
+                alert(`Choose a betting condition`);
+                balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
 
             }
 
-            collectWinnings.classList.remove(`hidden`);
+
+            for (let i of betCond) {
+                i.checked = false;
+                i.checked = false;
+                i.checked = false;
+            }
+        }
+
+        betAmount.value = ``;
+        betAmount.focus();
+
+        setTimeout(() => {
+            betConditionContainer.classList.add(`hidden`);
+            diceDisplay.classList.add(`hidden`);
+        }, 1000); // 2000 milliseconds (2 seconds)
+    }
+
+
+
+    //Collect Winnings button
+
+    function collectWinningsFunction(eve) {
+
+        eve.preventDefault();
+        console.log(eve.target);
+        let win, loss;
+        if (iniBalance - Number(balance.textContent) > 0) {
+            loss = iniBalance - Number(balance.textContent);
+            win = 0;
+            confirm(`Sorry ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
+
+        }
+        else if (Number(balance.textContent) - iniBalance > 0) {
+            win = Number(balance.textContent) - iniBalance;
+            loss = 0;
+            confirm(`Congratulations ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
+        }
+
+        else {
+            win = 0;
+            loss = 0;
+            confirm(`Way to stay consistent ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
         }
 
 
-        if (!betCond[0].checked && !betCond[1].checked && !betCond[2].checked) {
-            alert(`Choose a betting condition`);
-            balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
 
+        if (confirm) {
+            location.reload();
         }
 
-
-        for(let i of betCond){
-        i.checked = false;
-        i.checked = false;
-        i.checked = false;
-        }
-    }
-
-    betAmount.value = ``;
-    betAmount.focus();
-
-    setTimeout(() => {
-        betConditionContainer.classList.add(`hidden`);
-        diceDisplay.classList.add(`hidden`);
-    }, 1000); // 2000 milliseconds (2 seconds)
-}
-
-
-
-//Collect Winnings button
-
-function collectWinningsFunction(eve) {
-
-    eve.preventDefault();
-    console.log(eve.target);
-    let win, loss;
-    if (iniBalance - Number(balance.textContent) > 0) {
-        loss = iniBalance - Number(balance.textContent);
-        win = 0;
-        confirm(`Sorry ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
-
-    }
-    else if (Number(balance.textContent) - iniBalance > 0) {
-        win = Number(balance.textContent) - iniBalance;
-        loss = 0;
-        confirm(`Congratulations ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
-    }
-
-    else {
-        win = 0;
-        loss = 0;
-        confirm(`Way to stay consistent ${playerName.textContent}. Your final balance is $${balance.innerHTML}. You have won $${win} and lost $${loss}.`)
     }
 
 
 
-    if (confirm) {
+
+    //Reload page button
+    function resetGameFunction() {
         location.reload();
     }
-
-}
-
-
-
-
-//Reload page button
-function resetGameFunction() {
-    location.reload();
-}
 
 
 
