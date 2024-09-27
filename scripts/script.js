@@ -82,6 +82,7 @@ function startPlayNew(eve) {
             playerName.innerHTML = ` ${welcomeMsg.toUpperCase()} `;
             console.log(playerName.innerText);
             gameContainer.classList.remove(`hidden`);
+            startButton.disabled = true;
 
             return;
         }
