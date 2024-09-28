@@ -14,6 +14,11 @@ let gameContainer = document.getElementById(`gameContainer`);
 let betConditionContainer = document.getElementById(`betConditionContainer`);
 let collectWinnings = document.getElementById(`collectWinnings`);
 let diceDisplay = document.getElementById('diceDisplay');
+let betHistoryTableBody = document.getElementById('betHistoryTableBody');
+let betHistoryButton = document.getElementById(`betHistoryButton`);
+let betHistoryTable = document.getElementById(`betHistoryTable`);
+let bettingTable = document.getElementById(`bettingTable`);
+let betHistoryCloseButton = document.getElementById(`betHistoryCloseButton`);
 
 
 
@@ -33,8 +38,19 @@ myGame.insertBefore(resultDisplay, diceDisplay);
 resultDisplay.style.fontSize = `1.5rem`;
 resultDisplay.style.margin = `20px`;
 resultDisplay.style.height = `40px`;
+resultDisplay.style.fontWeight = `bold`;
 resultDisplay.classList.add(`press-start-2p-regular`);
 // resultDisplay.style.backgroundColor = `white`;
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -46,6 +62,8 @@ resultDisplay.classList.add(`press-start-2p-regular`);
 
 //Cache initial values
 let iniBalance = Number(balance.textContent);
+let dice;
+let result;
 
 
 
@@ -56,7 +74,8 @@ placeBet.addEventListener(`click`, placeBetValidation);
 rollDice.addEventListener(`click`, betConditionVerification);
 resetGameButton.addEventListener(`click`, resetGameFunction);
 collectWinnings.addEventListener(`click`, collectWinningsFunction);
-
+betHistoryButton.addEventListener(`click`, betHistoryFunction);
+betHistoryCloseButton.addEventListener(`click`, betHistoryCloseButtonFunction);
 
 
 
@@ -108,7 +127,7 @@ function placeBetValidation(eve) {
     // console.log(betAmount.value);
 
     if (betAmount.value < betAmount.min || betAmount.value > betAmount.max) {
-        alert(`Enter proper bet amount between 10 and 25`);
+        alert(`Enter proper bet amount between $10 and $25`);
     }
 
     else {
@@ -147,7 +166,7 @@ function betConditionVerification(eve) {
 
     eve.preventDefault();
     placeBet.disabled = false;
-    let dice;
+    betHistoryButton.classList.remove(`hidden`);
 
     //console.log(betCond[0]);
     for (let i = 0; i < betCond.length; i++) {
@@ -167,6 +186,7 @@ function betConditionVerification(eve) {
                 balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
                 resultDisplay.innerHTML = `You rolled a total of ${dice}. You have won $${betAmount.value}`;
                 resultDisplay.style.color = `green`;
+                result = `Win`;
                 //console.log(balance.innerHTML);
 
 
@@ -176,17 +196,20 @@ function betConditionVerification(eve) {
                 balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
                 resultDisplay.innerHTML = `You rolled a total of ${dice}. You have won $${betAmount.value}`;
                 resultDisplay.style.color = `green`;
+                result = `Win`;
             }
 
             else if (betCond[i].value == `seven` && dice == 7) {
                 balance.innerHTML = Number(balance.innerHTML) + (2 * Number(betAmount.value));
                 resultDisplay.innerHTML = `You rolled a total of ${dice}. You have won $${2*Number(betAmount.value)}`;
                 resultDisplay.style.color = `green`;
+                result = `Win`;
             }
 
             else {
                 resultDisplay.innerHTML = `You rolled a total of ${dice}. You have lost $${betAmount.value}`;
                 resultDisplay.style.color = `red`;
+                result = `Loss`;
             }
 
 
@@ -209,6 +232,15 @@ function betConditionVerification(eve) {
         i.checked = false;
     }
 
+    let newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td>${dice}</td>
+        <td>$${betAmount.value}</td>
+        <td>${result}</td>
+        <td>$${balance.innerHTML}</td>
+    `;
+    betHistoryTableBody.appendChild(newRow);
+
 
     betAmount.value = ``;
     betAmount.focus();
@@ -227,6 +259,26 @@ function betConditionVerification(eve) {
 }
 
 
+
+//View betting history table
+function betHistoryFunction(eve){
+
+    eve.preventDefault();
+    bettingTable.classList.remove(`hidden`);
+    betHistoryCloseButton.classList.remove(`hidden`);
+
+}
+
+
+
+
+function betHistoryCloseButtonFunction(eve){
+
+    eve.preventDefault();
+    bettingTable.classList.add(`hidden`);
+    betHistoryCloseButton.classList.add(`hidden`);
+
+}
 
 
 

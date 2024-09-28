@@ -47,13 +47,15 @@
 /* General page styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
+    background-color: #f0f4f88c;
     text-align: center;
     margin: 0;
     padding: 0;
-    background-image: url(https://img.freepik.com/premium-photo/collection-realistic-isometric-casino-poker-chips-black-white-background_268133-3.jpg);
+    background-image: url(https://static.vecteezy.com/ti/vecteur-libre/p1/27010072-blackjack-noir-neon-poker-carte-avec-poker-frites-sur-noir-flou-contexte-casino-toile-de-fond-pour-votre-les-arts-vectoriel.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
+    /* background-position: center; */
+
 }
 
 .container, #gameContainer {
@@ -144,6 +146,34 @@ button:hover {
 
 .bet-container {
     margin-bottom: 20px;
+}
+
+
+/* Betting table styling */
+.bettingTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.bettingTable th, .bettingTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.bettingTable th {
+    background-color: #28a745;
+    color: white;
+    font-size: 1rem;
+}
+
+.bettingTable tr{
+
+    background-color: #f7fcf9;
+    color: rgb(26, 117, 35);
+    font-size: 1rem;
+
 }
 
 /* Dice and result styling */

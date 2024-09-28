@@ -10,17 +10,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Honk&family=Permanent+Marker&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Bungee+Tint&family=Honk&family=Permanent+Marker&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Bungee+Tint&family=Honk&family=Permanent+Marker&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Bungee+Tint&family=Honk&family=Permanent+Marker&family=Press+Start+2P&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Bungee+Tint&family=Honk&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Bungee+Tint&family=Honk&family=Permanent+Marker&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Bungee+Tint&family=Honk&family=Permanent+Marker&family=Press+Start+2P&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
 
 
 
@@ -81,7 +87,27 @@
     <!-- Dice result display -->
     <div id="diceDisplay" class="hidden">🎲</div>
 
+    <br><br>
 
+    <div class="betHistory" id="betHistoryTable">
+        <button id="betHistoryButton" class="betHistoryButton hidden">View your betting history</button>
+        <button id="betHistoryCloseButton" class="betHistoryCloseButton hidden">Close your betting history</button>
+        <table class="bettingTable hidden" id="bettingTable">
+            <thead>
+                <tr>
+                    <th>Roll</th>
+                    <th>Bet Amount</th>
+                    <th>Result</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody id="betHistoryTableBody">
+                <!-- Betting history will go here -->
+            </tbody>
+        </table>
+    </div>
+
+    <br><br>
 
     <!-- Collect Winnings button -->
     <div class="collect-Winnings hidden" id="collectWinnings"><button>Collect Your Winnings..!!!!!</button></div>
