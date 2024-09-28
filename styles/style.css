@@ -14,30 +14,81 @@
   font-variation-settings:
     "MORF" 15,
     "SHLN" 50;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 1.5em;
+    height: 1.5em;
 }
 
 .permanent-marker-regular {
     font-family: "Permanent Marker", cursive;
     font-weight: 400;
     font-style: normal;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
   }
 
   .bungee-tint-regular {
     font-family: "Bungee Tint", sans-serif;
     font-weight: 400;
     font-style: normal;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
   }
 
   .shadows-into-light-regular {
     font-family: "Shadows Into Light", cursive;
     font-weight: 400;
     font-style: normal;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
   }
 
   .press-start-2p-regular {
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
   }
   
   
@@ -49,8 +100,8 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f4f88c;
     text-align: center;
-    margin: 0;
-    padding: 0;
+    margin: auto;
+    padding: auto;
     background-image: url(../Images/Background.jpg);
     background-repeat: no-repeat;
     background-size:cover;
@@ -61,7 +112,7 @@ body {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #ffffff00;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -71,33 +122,61 @@ h1 {
     color: #333;
     font-size: 4rem;
     margin-bottom: 20px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(255, 0, 238),
+      0 0 82px rgb(255, 0, 238),
+      0 0 92px rgb(255, 0, 238),
+      0 0 102px rgb(255, 0, 238),
+      0 0 151px rgb(255, 0, 238);
 }
 
 p {
 
     font-family: "Bungee Tint", sans-serif;
     color: #666;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 20px;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(255, 0, 0),
+      0 0 82px rgb(255, 0, 0),
+      0 0 92px rgb(255, 0, 0),
+      0 0 102px rgb(255, 0, 0),
+      0 0 151px rgb(255, 0, 0);
 }
 
 
 label { 
 
     font-family: "Shadows Into Light", cursive;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 20px;
     font-weight: bold;
     color: rgb(17, 143, 101);
+
+    
 }
 
 legend {
 
     font-family: "Permanent Marker", cursive;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 20px;
     font-weight: bold;
-    color: rgb(9, 75, 23);
+    color: rgb(23, 136, 15);
+    text-shadow:
+      0 0 7px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+
+    
 
 }
 
@@ -109,6 +188,7 @@ input[type="text"], input[type="number"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    
 }
 
 button {
@@ -120,10 +200,20 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.75rem;
+    
 }
 
 button:hover {
     background-color: #218838;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
 }
 
 .error {
@@ -159,12 +249,22 @@ button:hover {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
+    
 }
 
 .bettingTable th {
     background-color: #28a745;
     color: white;
     font-size: 1rem;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
 }
 
 .bettingTable tr{
@@ -180,6 +280,15 @@ button:hover {
     font-size: 4rem;
     margin-top: 20px;
     animation: rollDice 1s ease-in-out;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
 }
 
 /* Dice roll animation */
@@ -194,6 +303,7 @@ button:hover {
 .score-board {
     margin-top: 20px;
     font-size: 1.1rem;
+    
 }
 
 
