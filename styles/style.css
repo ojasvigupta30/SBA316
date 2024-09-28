@@ -4,6 +4,46 @@
 
 
 
+/* headingMain: Use a unique and descriptive class name */
+
+.honk-headingMain {
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+
+.permanent-marker-regular {
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .bungee-tint-regular {
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .shadows-into-light-regular {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  
+  
+
+
 /* General page styling */
 body {
     font-family: 'Arial', sans-serif;
@@ -11,6 +51,9 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    background-image: url(https://img.freepik.com/premium-photo/collection-realistic-isometric-casino-poker-chips-black-white-background_268133-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container, #gameContainer {
@@ -23,16 +66,40 @@ body {
 }
 
 h1 {
+    font-family: "Honk", system-ui;
     color: #333;
-    font-size: 2.5rem;
+    font-size: 4rem;
     margin-bottom: 20px;
 }
 
 p {
+
+    font-family: "Bungee Tint", sans-serif;
     color: #666;
-    font-size: 1.1rem;
+    font-size: 2rem;
     margin-bottom: 20px;
 }
+
+
+label { 
+
+    font-family: "Shadows Into Light", cursive;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: rgb(17, 143, 101);
+}
+
+legend {
+
+    font-family: "Permanent Marker", cursive;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: rgb(9, 75, 23);
+
+}
+
 
 input[type="text"], input[type="number"] {
     width: calc(100% - 20px);
@@ -44,13 +111,14 @@ input[type="text"], input[type="number"] {
 }
 
 button {
-    background-color: #28a745;
-    color: white;
+    font-family: "Permanent Marker", cursive;
+    background-color: #0a551b;
+    color: rgb(249, 247, 247);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.75rem;
 }
 
 button:hover {

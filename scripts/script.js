@@ -31,8 +31,13 @@ myGame.insertBefore(resultDisplay, diceDisplay);
 
 //Styling the resultDisplay element
 resultDisplay.style.fontSize = `1.5rem`;
-resultDisplay.style.marginTop = `20px`;
-resultDisplay.style.minHeight = `40px`;
+resultDisplay.style.margin = `20px`;
+resultDisplay.style.height = `40px`;
+resultDisplay.classList.add(`press-start-2p-regular`);
+// resultDisplay.style.backgroundColor = `white`;
+
+
+
 
 
 
@@ -160,6 +165,8 @@ function betConditionVerification(eve) {
             if (betCond[i].value == `lessThanSeven` && dice < 7) {
 
                 balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
+                resultDisplay.innerHTML = `You rolled a total of ${dice}. You have won $${betAmount.value}`;
+                resultDisplay.style.color = `green`;
                 //console.log(balance.innerHTML);
 
 
@@ -167,10 +174,19 @@ function betConditionVerification(eve) {
 
             else if (betCond[i].value == `greaterThanSeven` && dice > 7) {
                 balance.innerHTML = Number(balance.innerHTML) + Number(betAmount.value);
+                resultDisplay.innerHTML = `You rolled a total of ${dice}. You have won $${betAmount.value}`;
+                resultDisplay.style.color = `green`;
             }
 
             else if (betCond[i].value == `seven` && dice == 7) {
                 balance.innerHTML = Number(balance.innerHTML) + (2 * Number(betAmount.value));
+                resultDisplay.innerHTML = `You rolled a total of ${dice}. You have won $${2*Number(betAmount.value)}`;
+                resultDisplay.style.color = `green`;
+            }
+
+            else {
+                resultDisplay.innerHTML = `You rolled a total of ${dice}. You have lost $${betAmount.value}`;
+                resultDisplay.style.color = `red`;
             }
 
 
@@ -199,10 +215,15 @@ function betConditionVerification(eve) {
 
     setTimeout(() => {
         resultDisplay.classList.remove(`hidden`);
-        resultDisplay.innerHTML = dice;
+        // resultDisplay.innerHTML = dice;
         betConditionContainer.classList.add(`hidden`);
         diceDisplay.classList.add(`hidden`);
+       
     }, 1000); // 1000 milliseconds (1 second)
+
+    setTimeout(() => {
+        resultDisplay.classList.add(`hidden`);
+    }, 3000)
 }
 
 
