@@ -51,10 +51,9 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    background-image: url(https://static.vecteezy.com/ti/vecteur-libre/p1/27010072-blackjack-noir-neon-poker-carte-avec-poker-frites-sur-noir-flou-contexte-casino-toile-de-fond-pour-votre-les-arts-vectoriel.jpg);
+    background-image: url(../Images/Background.jpg);
     background-repeat: no-repeat;
     background-size:cover;
-    /* background-position: center; */
 
 }
 

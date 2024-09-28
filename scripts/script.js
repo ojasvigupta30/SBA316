@@ -1,5 +1,4 @@
 //----------------------------Caching nodes of the HTML code-----------------------------
-
 let playerName = document.getElementById(`playerName`);
 let heading = document.getElementsByTagName(`h1`);
 let startButton = document.getElementById(`startPlay`);
@@ -46,18 +45,6 @@ resultDisplay.classList.add(`press-start-2p-regular`);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //------------------------------------------Declaring and caching variables---------------------------------
 
 //Cache initial values
@@ -69,15 +56,13 @@ let result;
 
 //-------------------------------------------------Event listeners------------------------------------------
 
-startButton.addEventListener(`click`, startPlayNew);
-placeBet.addEventListener(`click`, placeBetValidation);
-rollDice.addEventListener(`click`, betConditionVerification);
-resetGameButton.addEventListener(`click`, resetGameFunction);
-collectWinnings.addEventListener(`click`, collectWinningsFunction);
-betHistoryButton.addEventListener(`click`, betHistoryFunction);
-betHistoryCloseButton.addEventListener(`click`, betHistoryCloseButtonFunction);
-
-
+startButton.addEventListener(`click`, startPlayNew); //Start the game
+placeBet.addEventListener(`click`, placeBetValidation); //Place bet amount
+rollDice.addEventListener(`click`, betConditionVerification); //Place bet condition and roll the dice and Play the game
+resetGameButton.addEventListener(`click`, resetGameFunction); //Reset/Close the game and reload page
+collectWinnings.addEventListener(`click`, collectWinningsFunction); //Finish game and collect your winnings
+betHistoryButton.addEventListener(`click`, betHistoryFunction); //See your betting history table
+betHistoryCloseButton.addEventListener(`click`, betHistoryCloseButtonFunction); //Close your betting history table
 
 
 
@@ -156,6 +141,7 @@ function placeBetValidation(eve) {
 
 
 }
+
 
 
 
@@ -260,7 +246,8 @@ function betConditionVerification(eve) {
 
 
 
-//View betting history table
+
+//Function to view betting history table
 function betHistoryFunction(eve){
 
     eve.preventDefault();
@@ -271,7 +258,7 @@ function betHistoryFunction(eve){
 
 
 
-
+//Function to close the betting history table
 function betHistoryCloseButtonFunction(eve){
 
     eve.preventDefault();
