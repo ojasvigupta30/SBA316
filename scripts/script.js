@@ -165,6 +165,9 @@ function betConditionVerification(eve) {
             //dice.classList.remove('hidden');
 
             diceDisplay.classList.remove(`hidden`);
+            diceDisplay.scrollIntoView({
+                behavior: "smooth"
+            })
             //diceDisplay.innerHTML = dice;
 
             if (betCond[i].value == `lessThanSeven` && dice < 7) {
